@@ -35,6 +35,7 @@ class Stack:
             exit(-1)
         return self.arr[self.top]
 
+    # TODO
     def push_list(self, arr):
         rem_space = self.capacity - self.top + 1
         pass
