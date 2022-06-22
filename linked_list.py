@@ -68,6 +68,27 @@ class LinkedList:
                 temp = temp.next
             temp.next = temp.next.next
 
+    def reverse_iterative(self):
+        prev = None
+        curr = self.head
+        while curr is not None:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        self.head = prev
+
+    def reverse_recursive(self, head):
+        if head is None or head.next is None:
+            return head
+        rest = self.reverse_recursive(head.next)
+
+        # first element at last
+        head.next.next = head
+        head.next = None
+
+        return rest
+
     def __repr__(self):
         temp = self.head
         res = []
@@ -96,4 +117,8 @@ if __name__ == "__main__":
     l.insert_after(56, 888)
     print(l)
     l.delete(888)
+    print(l)
+    l.reverse_iterative()
+    print(l)
+    l.head = l.reverse_recursive(l.head)
     print(l)
