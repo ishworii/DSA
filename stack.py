@@ -26,12 +26,13 @@ class Stack:
             print("Stack Underflow!!")
             exit(-1)
         popped = self.arr[self.top]
-        self.top = - 1
+        self.top -= 1
         # print(f"Popped {popped} for the stack")
         return popped
 
     def peek(self):
         if self.is_empty():
+            print("Stack Empty!!!")
             exit(-1)
         return self.arr[self.top]
 
@@ -44,9 +45,8 @@ class Stack:
 if __name__ == "__main__":
     s = Stack(5)
     print(s.is_empty())
-    s.push(5)
-    s.pop()
-    s.push(7)
-    s.push(8)
-    s.push(9)
+    s.push(10)
+    s.push(20)
+    print(s.pop())
+    s.push(23)
     print(s.peek())
