@@ -89,6 +89,15 @@ class LinkedList:
 
         return rest
 
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        self.head = slow
+
     def __repr__(self):
         temp = self.head
         res = []
@@ -121,4 +130,6 @@ if __name__ == "__main__":
     l.reverse_iterative()
     print(l)
     l.head = l.reverse_recursive(l.head)
+    print(l)
+    l.find_middle()
     print(l)
